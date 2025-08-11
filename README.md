@@ -20,7 +20,7 @@ A completely free AI-powered coding platform developed by the Royal College Arti
 - **Backend**: Firebase (Auth + Firestore)
 - **AI**: GitHub Models API (GPT-4o)
 - **Icons**: Lucide React
-- **Deployment**: Firebase Hosting
+- **Deployment**: Vercel (recommended) or Firebase Hosting
 
 ## 🏃‍♂️ Quick Start
 
@@ -84,41 +84,49 @@ A completely free AI-powered coding platform developed by the Royal College Arti
 
 ## 🚀 Deployment
 
-### Automated Deployment
+### Deploy to Vercel (Recommended)
 
-Use the included deployment script:
+CodeWeave is optimized for Vercel deployment:
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Deploy CodeWeave"
+   git push origin main
+   ```
+
+2. **Deploy on Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Set environment variables:
+     ```
+     NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+     NEXT_PUBLIC_FIREBASE_PROJECT_ID=codeweave-b125f
+     NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+     NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+     NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+     GITHUB_TOKEN=your_github_models_token
+     ```
+   - Deploy!
+
+### Deploy to Firebase Hosting (Alternative)
+
+If you prefer Firebase hosting:
 
 ```bash
-# Make sure Firebase CLI is installed and you're logged in
-./deploy.sh
+# Build for static export
+npm run build:firebase
+firebase deploy --only hosting
 ```
-
-### Manual Deployment
-
-1. **Build the project**
-   ```bash
-   pnpm build
-   ```
-
-2. **Deploy Firestore rules**
-   ```bash
-   firebase deploy --only firestore:rules
-   ```
-
-3. **Deploy to hosting**
-   ```bash
-   firebase deploy --only hosting
-   ```
 
 ### Available Scripts
 
 - `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm export` - Export static files
-- `pnpm deploy` - Run deployment script
-- `pnpm firebase:emulators` - Start Firebase emulators
-- `pnpm firebase:deploy` - Deploy everything to Firebase
-- `pnpm firebase:rules` - Deploy only Firestore rules
+- `pnpm build` - Build for production (Vercel)
+- `pnpm build:firebase` - Build for Firebase hosting
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
 ## 🔧 Configuration
 
@@ -185,6 +193,6 @@ CodeWeave is a passion project by students, for students and developers worldwid
 
 ---
 
-**Live Demo**: [https://codeweave-b125f.web.app](https://codeweave-b125f.web.app)
+**Live Demo**: [Deploy on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/Developer-RCAIC/codeweave-new)
 
 Built with ❤️ by Royal College AI Club

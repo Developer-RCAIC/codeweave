@@ -102,14 +102,13 @@ export default function LivePreview({ files, isVisible, onToggle }: LivePreviewP
     if (files.length > 0) {
       generatePreview();
     }
-    
     // Cleanup function to revoke blob URLs
     return () => {
       if (previewUrl) {
         URL.revokeObjectURL(previewUrl);
       }
     };
-  }, [files, generatePreview, previewUrl]);
+  }, [files]);
 
   const openInNewTab = () => {
     if (previewUrl) {
