@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeWeave 🕸️
 
-## Getting Started
+A completely free AI-powered coding platform developed by the Royal College Artificial Intelligence Club. Transform your ideas into production-ready web applications instantly with no cost, no limits, and no compromises.
 
-First, run the development server:
+## 🚀 Features
+
+- **AI-Powered Generation**: Create complete web projects from simple descriptions
+- **Iterative Editing**: Continuously refine projects without starting over
+- **Live Preview**: See changes instantly with real-time preview
+- **Professional Code**: Get production-ready HTML, CSS, and JavaScript
+- **Project Management**: Save, organize, and manage all your projects
+- **Firebase Integration**: Secure authentication and cloud storage
+- **100% Free**: No costs, no limits, no premium tiers
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 15.3.3, React 19, TypeScript
+- **Styling**: Tailwind CSS
+- **Editor**: Monaco Editor
+- **Backend**: Firebase (Auth + Firestore)
+- **AI**: GitHub Models API (GPT-4o)
+- **Icons**: Lucide React
+- **Deployment**: Firebase Hosting
+
+## 🏃‍♂️ Quick Start
+
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm
+- Firebase CLI
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd codeweave
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up environment variables**
+   Create `.env.local` with your Firebase config:
+   ```env
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=codeweave-b125f
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+   GITHUB_TOKEN=your_github_models_token
+   ```
+
+4. **Start development server**
+   ```bash
+   pnpm dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:3000`
+
+### Firebase Setup
+
+1. **Install Firebase CLI**
+   ```bash
+   npm install -g firebase-tools
+   ```
+
+2. **Login to Firebase**
+   ```bash
+   firebase login
+   ```
+
+3. **Initialize Firebase (already done)**
+   The project is already configured with:
+   - `firebase.json` - Firebase configuration
+   - `.firebaserc` - Project settings
+   - `firestore.rules` - Security rules
+   - `firestore.indexes.json` - Database indexes
+
+## 🚀 Deployment
+
+### Automated Deployment
+
+Use the included deployment script:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Make sure Firebase CLI is installed and you're logged in
+./deploy.sh
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Manual Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Build the project**
+   ```bash
+   pnpm build
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Deploy Firestore rules**
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
 
-## Learn More
+3. **Deploy to hosting**
+   ```bash
+   firebase deploy --only hosting
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+### Available Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm export` - Export static files
+- `pnpm deploy` - Run deployment script
+- `pnpm firebase:emulators` - Start Firebase emulators
+- `pnpm firebase:deploy` - Deploy everything to Firebase
+- `pnpm firebase:rules` - Deploy only Firestore rules
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Configuration
 
-## Deploy on Vercel
+### Firebase Configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is configured for Firebase project `codeweave-b125f`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Authentication**: Email/password authentication
+- **Firestore**: NoSQL database for projects and user data
+- **Hosting**: Static site hosting
+- **Security Rules**: User-specific data access controls
+
+### Firestore Collections
+
+- `users/{userId}` - User profile data
+- `projects/{projectId}` - User projects with code files
+- `public_projects/{projectId}` - Public/shared projects (future feature)
+
+### Security Rules
+
+- Users can only access their own data
+- Projects are scoped to the authenticated user
+- All operations require authentication
+
+## 🏗️ Project Structure
+
+```
+codeweave/
+├── app/                    # Next.js app directory
+│   ├── components/         # React components
+│   ├── dashboard/          # Dashboard page
+│   ├── editor/            # Editor page
+│   ├── login/             # Login page
+│   ├── signup/            # Signup page
+│   ├── api/               # API routes
+│   └── page.tsx           # Landing page
+├── lib/                   # Utility libraries
+│   ├── firebase.ts        # Firebase configuration
+│   ├── authService.ts     # Authentication service
+│   └── projectService.ts  # Project management service
+├── firebase.json          # Firebase configuration
+├── firestore.rules        # Firestore security rules
+├── firestore.indexes.json # Firestore indexes
+├── .firebaserc           # Firebase project settings
+└── deploy.sh             # Deployment script
+```
+
+## 🤝 Contributing
+
+This is an open-source project by the Royal College AI Club. Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is completely free and open-source, developed by the Royal College Artificial Intelligence Club.
+
+## 🎓 About Royal College AI Club
+
+CodeWeave is a passion project by students, for students and developers worldwide. Our mission is to make AI-powered development accessible to everyone through education and innovation.
+
+---
+
+**Live Demo**: [https://codeweave-b125f.web.app](https://codeweave-b125f.web.app)
+
+Built with ❤️ by Royal College AI Club
