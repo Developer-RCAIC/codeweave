@@ -80,29 +80,30 @@ index.html, styles.css, script.js
 
       {/* Navigation */}
       <nav className="relative z-50 border-b border-white/[0.06] backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-black" />
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center">
+                <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
                 CodeWeave
               </span>
             </div>
 
-            <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-2 sm:gap-4 md:gap-8">
               <button 
                 onClick={onViewDashboard}
-                className="text-zinc-400 hover:text-white transition-colors"
+                className="text-zinc-400 hover:text-white transition-colors text-sm sm:text-base"
               >
                 Dashboard
               </button>
               <button 
                 onClick={onGetStarted}
-                className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5"
+                className="px-3 py-2 sm:px-4 sm:py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium rounded-lg transition-all duration-200 hover:-translate-y-0.5 text-sm sm:text-base"
               >
-                Start Free
+                <span className="hidden sm:inline">Start Free</span>
+                <span className="sm:hidden">Start</span>
               </button>
             </div>
           </div>
@@ -110,15 +111,16 @@ index.html, styles.css, script.js
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-20 pb-32">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative z-10 pt-12 sm:pt-20 pb-20 sm:pb-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-300 text-sm mb-8">
-              <Sparkles className="w-4 h-4" />
-              100% Free AI Development Platform
+            <div className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-300 text-xs sm:text-sm mb-6 sm:mb-8">
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">100% Free AI Development Platform</span>
+              <span className="sm:hidden">Free AI Platform</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-b from-white via-white to-zinc-400 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-b from-white via-white to-zinc-400 bg-clip-text text-transparent leading-tight px-2">
               Weave Beautiful Code
               <br />
               <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
@@ -126,38 +128,38 @@ index.html, styles.css, script.js
               </span>
             </h1>
 
-            <p className="text-xl text-zinc-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl text-zinc-400 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
               A completely free AI-powered coding platform developed by the Royal College 
               Artificial Intelligence Club. Transform your ideas into production-ready web 
               applications instantly with no cost, no limits, and no compromises.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
               <button 
                 onClick={onGetStarted}
-                className="group px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/25 flex items-center gap-2"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/25 flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 Start Coding for Free
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
               <button
                 onClick={() => setIsVideoPlaying(true)}
-                className="group px-8 py-4 border border-zinc-700 hover:border-zinc-600 text-white font-semibold rounded-xl transition-all duration-200 hover:-translate-y-1 backdrop-blur-sm flex items-center gap-2"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-zinc-700 hover:border-zinc-600 text-white font-semibold rounded-xl transition-all duration-200 hover:-translate-y-1 backdrop-blur-sm flex items-center justify-center gap-2 text-sm sm:text-base"
               >
-                <Play className="w-5 h-5" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5" />
                 Watch Demo
               </button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-zinc-800">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-12 sm:mt-20 pt-12 sm:pt-20 border-t border-zinc-800">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-emerald-400 mb-2">
+                <div key={index} className="text-center px-2">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-400 mb-1 sm:mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-zinc-500 text-sm">
+                  <div className="text-zinc-500 text-xs sm:text-sm">
                     {stat.label}
                   </div>
                 </div>
@@ -166,8 +168,8 @@ index.html, styles.css, script.js
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        {/* Scroll Indicator - Hidden on mobile */}
+        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:flex">
           <div className="flex flex-col items-center gap-2 text-zinc-500 animate-bounce">
             <span className="text-sm">Scroll to explore</span>
             <ChevronDown className="w-5 h-5" />
@@ -176,32 +178,32 @@ index.html, styles.css, script.js
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative z-10 py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section id="features" className="relative z-10 py-20 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Built by Royal College AI Club
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
               Every feature designed to democratize coding and make AI development accessible to everyone
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Feature Display */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-2xl border transition-all duration-500 cursor-pointer ${
+                  className={`p-4 sm:p-6 rounded-2xl border transition-all duration-500 cursor-pointer ${
                     currentFeature === index
                       ? 'bg-emerald-500/5 border-emerald-500/30'
                       : 'bg-zinc-900/30 border-zinc-800/50 hover:border-zinc-700/50'
                   }`}
                   onClick={() => setCurrentFeature(index)}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-lg ${
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className={`p-2 sm:p-3 rounded-lg ${
                       currentFeature === index
                         ? 'bg-emerald-500/20 text-emerald-400'
                         : 'bg-zinc-800/50 text-zinc-500'
@@ -209,10 +211,10 @@ index.html, styles.css, script.js
                       {feature.icon}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2 text-white">
+                      <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
                         {feature.title}
                       </h3>
-                      <p className="text-zinc-400 leading-relaxed">
+                      <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -222,39 +224,39 @@ index.html, styles.css, script.js
             </div>
 
             {/* Code Preview */}
-            <div className="relative">
+            <div className="relative order-1 lg:order-2">
               <div className="bg-zinc-950/80 backdrop-blur-xl border border-zinc-800 rounded-2xl overflow-hidden">
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-zinc-800">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="ml-4 text-sm text-zinc-500">CodeWeave AI</span>
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-3 border-b border-zinc-800">
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+                  <span className="ml-3 sm:ml-4 text-xs sm:text-sm text-zinc-500">CodeWeave AI</span>
                 </div>
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div className="transition-all duration-300">
-                    <pre className="text-emerald-400 font-mono text-sm leading-relaxed whitespace-pre-wrap">
+                    <pre className="text-emerald-400 font-mono text-xs sm:text-sm leading-relaxed whitespace-pre-wrap overflow-x-auto">
                       {features[currentFeature].code}
                     </pre>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-full backdrop-blur-sm border border-white/10 animate-pulse" />
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full backdrop-blur-sm border border-white/10 animate-pulse" style={{ animationDelay: '1s' }} />
+              {/* Floating Elements - Hidden on mobile */}
+              <div className="hidden sm:block absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-full backdrop-blur-sm border border-white/10 animate-pulse" />
+              <div className="hidden sm:block absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full backdrop-blur-sm border border-white/10 animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="relative z-10 py-32 bg-zinc-950/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section id="demo" className="relative z-10 py-20 sm:py-32 bg-zinc-950/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               See CodeWeave in Action
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto px-4">
               Watch how easy it is to create beautiful websites with our free AI platform
             </p>
           </div>
@@ -289,43 +291,43 @@ index.html, styles.css, script.js
       </section>
 
       {/* About Royal College AI Club Section */}
-      <section id="about" className="relative z-10 py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section id="about" className="relative z-10 py-20 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
               Developed by Royal College AI Club
             </h2>
-            <p className="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed px-4">
               CodeWeave is a passion project by the Royal College Artificial Intelligence Club, 
               committed to making AI-powered development accessible to everyone. No costs, no barriers, 
               just pure innovation in the spirit of educational excellence.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl">
-              <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-emerald-400" />
+          <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center p-6 sm:p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Users className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">Student Innovation</h3>
-              <p className="text-zinc-400">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white">Student Innovation</h3>
+              <p className="text-sm sm:text-base text-zinc-400">
                 Built by students, for students and developers worldwide. A testament to what passionate learners can achieve.
               </p>
             </div>
 
-            <div className="text-center p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl">
-              <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8 text-emerald-400" />
+            <div className="text-center p-6 sm:p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Globe className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">Completely Free</h3>
-              <p className="text-zinc-400">
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white">Completely Free</h3>
+              <p className="text-sm sm:text-base text-zinc-400">
                 Completely free forever. No hidden costs, no premium tiers. Education and innovation should be accessible to all.
               </p>
             </div>
 
-            <div className="text-center p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl">
-              <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Coffee className="w-8 h-8 text-emerald-400" />
+            <div className="text-center p-6 sm:p-8 bg-zinc-900/30 border border-zinc-800/50 rounded-2xl">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Coffee className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-400" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white">Community Driven</h3>
               <p className="text-zinc-400">
@@ -337,22 +339,22 @@ index.html, styles.css, script.js
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center bg-gradient-to-br from-emerald-500/10 via-transparent to-blue-500/10 border border-emerald-500/20 rounded-3xl p-12 md:p-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-b from-white to-zinc-300 bg-clip-text text-transparent">
+      <section className="relative z-10 py-20 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center bg-gradient-to-br from-emerald-500/10 via-transparent to-blue-500/10 border border-emerald-500/20 rounded-3xl p-8 sm:p-12 md:p-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-b from-white to-zinc-300 bg-clip-text text-transparent">
               Ready to Code for Free?
             </h2>
-            <p className="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-zinc-400 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
               Join the Royal College AI Club community and start building amazing projects at no cost
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <button
                 onClick={onGetStarted}
-                className="group px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/25 flex items-center gap-2"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/25 flex items-center justify-center gap-2 text-sm sm:text-base"
               >
                 Start Building for Free
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
@@ -360,21 +362,23 @@ index.html, styles.css, script.js
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-zinc-800 py-12">
-        <div className="max-w-7xl mx-auto px-6">
+      <footer className="relative z-10 border-t border-zinc-800 py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center gap-3 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-black" />
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 md:mb-0">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center">
+                <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
                 CodeWeave
               </span>
             </div>
-            <div className="flex items-center gap-6 text-zinc-500 text-sm">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-zinc-500 text-xs sm:text-sm text-center">
               <span>© 2025 CodeWeave by Royal College AI Club. Always free.</span>
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
+              <div className="flex items-center gap-4 sm:gap-6">
+                <a href="#" className="hover:text-white transition-colors">Privacy</a>
+                <a href="#" className="hover:text-white transition-colors">Terms</a>
+              </div>
             </div>
           </div>
         </div>

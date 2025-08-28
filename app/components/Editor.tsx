@@ -106,11 +106,12 @@ export default function CodeEditor({ files, onFilesChange, onDownloadAll, onTogg
   if (files.length === 0) {
     return (
       <div className="h-full bg-[#1a1d29]/30 border border-gray-700/50 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-        <div className="text-center p-8">        <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#11b981]/20 to-cyan-400/20 rounded-2xl flex items-center justify-center">
-          <Code2 size={24} className="text-[#11b981]" />
-        </div>
-          <div className="text-gray-300 mb-2 font-medium">No files generated yet</div>
-          <div className="text-sm text-gray-500">
+        <div className="text-center p-4 sm:p-8">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-[#11b981]/20 to-cyan-400/20 rounded-2xl flex items-center justify-center">
+            <Code2 size={20} className="sm:size-6 text-[#11b981]" />
+          </div>
+          <div className="text-sm sm:text-base text-gray-300 mb-2 font-medium">No files generated yet</div>
+          <div className="text-xs sm:text-sm text-gray-500">
             Generate HTML, CSS, or JavaScript code to see files here
           </div>
         </div>
@@ -128,39 +129,39 @@ export default function CodeEditor({ files, onFilesChange, onDownloadAll, onTogg
             const fileExtension = file.name.split('.').pop()?.toLowerCase();
             const getFileIcon = () => {
               switch (fileExtension) {
-                case 'html': return <Globe size={14} />;
-                case 'css': return <Palette size={14} />;
-                case 'js': return <Zap size={14} />;
-                default: return <FileText size={14} />;
+                case 'html': return <Globe size={12} className="sm:size-[14px]" />;
+                case 'css': return <Palette size={12} className="sm:size-[14px]" />;
+                case 'js': return <Zap size={12} className="sm:size-[14px]" />;
+                default: return <FileText size={12} className="sm:size-[14px]" />;
               }
             };
 
             return (
               <div
                 key={file.id}
-                className={`flex items-center px-4 py-3 text-sm border-r border-gray-700/50 cursor-pointer group relative transition-all duration-200 ${
+                className={`flex items-center px-2 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm border-r border-gray-700/50 cursor-pointer group relative transition-all duration-200 min-w-0 ${
                   isActive
                     ? 'bg-[#1a1d29] text-white border-b-2 border-[#11b981]'
                     : 'text-gray-400 hover:text-white hover:bg-[#1a1d29]/50'
                 }`}
                 onClick={() => setActiveFileId(file.id)}
               >
-                <div className="mr-2 text-gray-400">{getFileIcon()}</div>
-                <span className="font-medium whitespace-nowrap">{file.name}</span>
+                <div className="mr-1.5 sm:mr-2 text-gray-400 flex-shrink-0">{getFileIcon()}</div>
+                <span className="font-medium whitespace-nowrap truncate max-w-[80px] sm:max-w-none">{file.name}</span>
                 
-                <div className="flex items-center ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="flex items-center ml-1 sm:ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       copyFileContent(file);
                     }}
-                    className="p-1 hover:bg-gray-600/50 rounded transition-all mr-1"
+                    className="p-0.5 sm:p-1 hover:bg-gray-600/50 rounded transition-all mr-0.5 sm:mr-1"
                     title="Copy content"
                   >
                     {copiedFileId === file.id ? (
-                      <Check size={12} className="text-green-400" />
+                      <Check size={10} className="sm:size-3 text-green-400" />
                     ) : (
-                      <Copy size={12} />
+                      <Copy size={10} className="sm:size-3" />
                     )}
                   </button>
                   <button
@@ -168,10 +169,10 @@ export default function CodeEditor({ files, onFilesChange, onDownloadAll, onTogg
                       e.stopPropagation();
                       closeFile(file.id);
                     }}
-                    className="p-1 hover:bg-red-500/50 rounded transition-all"
+                    className="p-0.5 sm:p-1 hover:bg-red-500/50 rounded transition-all"
                     title="Close file"
                   >
-                    <X size={12} />
+                    <X size={10} className="sm:size-3" />
                   </button>
                 </div>
               </div>

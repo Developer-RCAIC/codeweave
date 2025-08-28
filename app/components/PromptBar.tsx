@@ -66,7 +66,7 @@ export default function PromptBar({ onGenerate, isLoading, hasProject, onNewProj
                 ? "Describe how you want to modify your project..." 
                 : "Describe the website you want to create..."
               }
-              className="w-full min-h-[100px] p-4 bg-[#1a1d29]/50 border border-gray-700/50 rounded-xl text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[#11b981]/50 focus:border-[#11b981]/50 backdrop-blur-sm transition-all duration-300 hover:bg-[#1a1d29]/70 text-sm"
+              className="w-full min-h-[80px] sm:min-h-[100px] p-3 sm:p-4 bg-[#1a1d29]/50 border border-gray-700/50 rounded-xl text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[#11b981]/50 focus:border-[#11b981]/50 backdrop-blur-sm transition-all duration-300 hover:bg-[#1a1d29]/70 text-xs sm:text-sm"
               disabled={isLoading}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
@@ -78,7 +78,7 @@ export default function PromptBar({ onGenerate, isLoading, hasProject, onNewProj
             />
             
             {/* Action Buttons */}
-            <div className="absolute top-3 right-3 flex items-center gap-1">
+            <div className="absolute top-2 sm:top-3 right-2 sm:right-3 flex items-center gap-1">
               {history.length > 0 && (
                 <button
                   type="button"
@@ -86,28 +86,30 @@ export default function PromptBar({ onGenerate, isLoading, hasProject, onNewProj
                   className="p-1.5 text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-md transition-all duration-200"
                   title="Show prompt history"
                 >
-                  <History size={14} />
+                  <History size={12} className="sm:size-[14px]" />
                 </button>
               )}
             </div>
           </div>
 
           {/* Generate Button */}
-          <div className={`${hasProject ? 'flex gap-2' : ''}`}>
+          <div className={`${hasProject ? 'flex flex-col sm:flex-row gap-2' : ''}`}>
             <button
               type="submit"
               disabled={!prompt.trim() || isLoading}
-              className={`${hasProject ? 'flex-1' : 'w-full'} mt-3 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-[#11b981] to-cyan-400 hover:from-[#0f9f6e] hover:to-cyan-500 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100 shadow-lg text-sm`}
+              className={`${hasProject ? 'flex-1' : 'w-full'} mt-3 flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-[#11b981] to-cyan-400 hover:from-[#0f9f6e] hover:to-cyan-500 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] disabled:hover:scale-100 shadow-lg text-xs sm:text-sm`}
             >
               {isLoading ? (
                 <>
-                  <Loader2 size={16} className="animate-spin" />
-                  {hasProject ? 'Updating...' : 'Generating...'}
+                  <Loader2 size={14} className="sm:size-4 animate-spin" />
+                  <span className="hidden sm:inline">{hasProject ? 'Updating...' : 'Generating...'}</span>
+                  <span className="sm:hidden">{hasProject ? 'Update...' : 'Generate...'}</span>
                 </>
               ) : (
                 <>
-                  {hasProject ? <Edit3 size={16} /> : <Sparkles size={16} />}
-                  {hasProject ? 'Update Project' : 'Generate Code'}
+                  {hasProject ? <Edit3 size={14} className="sm:size-4" /> : <Sparkles size={14} className="sm:size-4" />}
+                  <span className="hidden sm:inline">{hasProject ? 'Update Project' : 'Generate Code'}</span>
+                  <span className="sm:hidden">{hasProject ? 'Update' : 'Generate'}</span>
                 </>
               )}
             </button>
@@ -116,10 +118,10 @@ export default function PromptBar({ onGenerate, isLoading, hasProject, onNewProj
               <button
                 type="button"
                 onClick={onNewProject}
-                className="mt-3 flex items-center justify-center gap-2 px-4 py-3 bg-gray-700/50 hover:bg-gray-700 text-gray-300 hover:text-white rounded-xl font-medium transition-all duration-300 text-sm"
+                className="mt-3 flex items-center justify-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-gray-700/50 hover:bg-gray-700 text-gray-300 hover:text-white rounded-xl font-medium transition-all duration-300 text-xs sm:text-sm"
                 title="Start a new project"
               >
-                <Plus size={16} />
+                <Plus size={14} className="sm:size-4" />
                 New
               </button>
             )}
@@ -127,7 +129,7 @@ export default function PromptBar({ onGenerate, isLoading, hasProject, onNewProj
 
           {/* Examples Dropdown */}
           {showExamples && (
-            <div className="absolute top-full left-0 right-0 z-20 mt-2 bg-[#1a1d29]/95 border border-gray-700/50 rounded-xl shadow-2xl backdrop-blur-xl overflow-hidden">
+            <div className="absolute top-full left-0 right-0 z-20 mt-2 bg-[#1a1d29]/95 border border-gray-700/50 rounded-xl shadow-2xl backdrop-blur-xl overflow-hidden max-h-60 sm:max-h-80 overflow-y-auto">
               <div className="p-3 border-b border-gray-700/50">
                 <div className="flex items-center gap-2 text-xs text-gray-300">
                   <Zap size={12} className="text-[#11b981]" />

@@ -257,54 +257,55 @@ Please modify the above code according to the user's request. You MUST provide a
 
   return (
     <>
-      <div className="min-h-screen bg-[#0a0b0f] text-white flex">
-        {/* Left Sidebar */}
-        <div className="w-80 bg-[#12141a] border-r border-gray-800/50 flex flex-col">
+      <div className="min-h-screen bg-[#0a0b0f] text-white flex flex-col lg:flex-row">
+        {/* Left Sidebar - Mobile: Full width, Desktop: Fixed width */}
+        <div className="w-full lg:w-80 bg-[#12141a] border-b lg:border-b-0 lg:border-r border-gray-800/50 flex flex-col">
           {/* Header */}
-          <div className="p-6 border-b border-gray-800/50">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#11b981] to-cyan-400 rounded-lg flex items-center justify-center">
-                <Code2 size={16} className="text-white" />
+          <div className="p-4 lg:p-6 border-b border-gray-800/50">
+            <div className="flex items-center gap-2 lg:gap-3 mb-3 lg:mb-4">
+              <div className="w-7 h-7 lg:w-8 lg:h-8 bg-gradient-to-br from-[#11b981] to-cyan-400 rounded-lg flex items-center justify-center">
+                <Code2 size={14} className="lg:size-4 text-white" />
               </div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <h1 className="text-lg lg:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 CodeWeave
               </h1>
             </div>
             
-            <div className="flex items-center gap-2 px-3 py-2 bg-[#11b981]/10 border border-[#11b981]/20 rounded-lg">
-              <Sparkles size={14} className="text-[#11b981]" />
-              <span className="text-sm text-[#11b981] font-medium">
+            <div className="flex items-center gap-2 px-2.5 lg:px-3 py-1.5 lg:py-2 bg-[#11b981]/10 border border-[#11b981]/20 rounded-lg">
+              <Sparkles size={12} className="lg:size-[14px] text-[#11b981]" />
+              <span className="text-xs lg:text-sm text-[#11b981] font-medium truncate">
                 {currentProject ? currentProject.name : 'CodeWeave'}
               </span>
             </div>
           </div>
 
           {/* Navigation */}
-          <div className="p-4 border-b border-gray-800/50">
+          <div className="p-3 lg:p-4 border-b border-gray-800/50">
             <div className="flex items-center gap-2">
               <button
                 onClick={() => router.push('/dashboard')}
-                className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all text-sm"
+                className="flex items-center gap-2 px-2.5 lg:px-3 py-1.5 lg:py-2 text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all text-xs lg:text-sm"
               >
-                <ArrowLeft size={14} />
+                <ArrowLeft size={12} className="lg:size-[14px]" />
                 Dashboard
               </button>
               {currentProject && (
                 <button
                   onClick={() => setShowSaveModal(true)}
-                  className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all text-sm"
+                  className="flex items-center gap-2 px-2.5 lg:px-3 py-1.5 lg:py-2 text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-all text-xs lg:text-sm"
                   title="Save as new project"
                 >
-                  <Save size={14} />
-                  Save As
+                  <Save size={12} className="lg:size-[14px]" />
+                  <span className="hidden sm:inline">Save As</span>
+                  <span className="sm:hidden">Save</span>
                 </button>
               )}
             </div>
           </div>
 
           {/* Prompt Section */}
-          <div className="flex-1 p-4 overflow-y-auto">
-            <div className="text-sm text-gray-400 mb-3">
+          <div className="flex-1 p-3 lg:p-4 overflow-y-auto">
+            <div className="text-xs lg:text-sm text-gray-400 mb-2 lg:mb-3">
               {files.length > 0 ? 'Modify your project' : 'Describe your website'}
             </div>
             <PromptBar 
@@ -315,17 +316,17 @@ Please modify the above code according to the user's request. You MUST provide a
             />
             
             {error && (
-              <div className="mt-4 p-3 bg-red-900/20 border border-red-500/30 rounded-lg text-red-300 text-sm">
+              <div className="mt-3 lg:mt-4 p-2.5 lg:p-3 bg-red-900/20 border border-red-500/30 rounded-lg text-red-300 text-xs lg:text-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
-                  <strong>Error:</strong> {error}
+                  <strong>Error:</strong> <span className="break-words">{error}</span>
                 </div>
               </div>
             )}
           </div>
 
           {/* Footer */}
-          <div className="p-4 border-t border-gray-800/50 text-xs text-gray-500">
+          <div className="p-3 lg:p-4 border-t border-gray-800/50 text-xs text-gray-500">
             <div className="flex items-center gap-2 mb-1">
               <div className="w-1.5 h-1.5 bg-[#11b981] rounded-full animate-pulse"></div>
               <span>Powered by AI</span>
@@ -335,45 +336,47 @@ Please modify the above code according to the user's request. You MUST provide a
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col min-h-0">
           {/* Top Bar */}
-          <div className="h-14 border-b border-gray-800/50 bg-[#12141a]/50 backdrop-blur-xl flex items-center justify-between px-6">
+          <div className="h-12 lg:h-14 border-b border-gray-800/50 bg-[#12141a]/50 backdrop-blur-xl flex items-center justify-between px-3 lg:px-6">
             <div className="flex items-center gap-4">
-              <span className="text-sm text-gray-400">
+              <span className="text-xs lg:text-sm text-gray-400">
                 {files.length > 0 ? `${files.length} files generated` : 'Ready to generate'}
               </span>
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 lg:gap-2">
               {files.length > 0 && (
                 <button
                   onClick={handleDownloadAll}
-                  className="px-3 py-1.5 bg-gray-700/50 hover:bg-gray-700 text-gray-300 rounded-lg text-sm transition-all duration-200"
+                  className="px-2.5 lg:px-3 py-1 lg:py-1.5 bg-gray-700/50 hover:bg-gray-700 text-gray-300 rounded-lg text-xs lg:text-sm transition-all duration-200"
                 >
-                  Download ZIP
+                  <span className="hidden sm:inline">Download ZIP</span>
+                  <span className="sm:hidden">ZIP</span>
                 </button>
               )}
               
               {files.some(f => f.name.endsWith('.html')) && (
                 <button
                   onClick={() => setShowPreview(!showPreview)}
-                  className={`px-3 py-1.5 rounded-lg text-sm transition-all duration-200 ${
+                  className={`px-2.5 lg:px-3 py-1 lg:py-1.5 rounded-lg text-xs lg:text-sm transition-all duration-200 ${
                     showPreview 
                       ? 'bg-[#11b981]/20 text-[#11b981] border border-[#11b981]/30' 
                       : 'bg-gray-700/50 hover:bg-gray-700 text-gray-300'
                   }`}
                 >
-                  {showPreview ? 'Hide Preview' : 'Show Preview'}
+                  <span className="hidden sm:inline">{showPreview ? 'Hide Preview' : 'Show Preview'}</span>
+                  <span className="sm:hidden">{showPreview ? 'Hide' : 'Preview'}</span>
                 </button>
               )}
             </div>
           </div>
 
           {/* Editor and Preview Container */}
-          <div className="flex-1 flex">
+          <div className="flex-1 flex flex-col lg:flex-row min-h-0">
             {/* Code Editor */}
-            <div className={`transition-all duration-300 ${showPreview ? 'w-1/2' : 'w-full'}`}>
-              <div className="h-full p-6">
+            <div className={`transition-all duration-300 ${showPreview ? 'lg:w-1/2' : 'w-full'} ${showPreview ? 'h-1/2 lg:h-full' : 'h-full'} flex flex-col`}>
+              <div className="flex-1 p-3 lg:p-6 min-h-0">
                 <CodeEditor
                   files={files}
                   onFilesChange={handleFilesChange}
@@ -386,7 +389,7 @@ Please modify the above code according to the user's request. You MUST provide a
 
             {/* Live Preview */}
             {showPreview && (
-              <div className="w-1/2 border-l border-gray-800/50">
+              <div className={`${showPreview ? 'lg:w-1/2' : 'w-full'} ${showPreview ? 'h-1/2 lg:h-full' : 'h-full'} border-t lg:border-t-0 lg:border-l border-gray-800/50`}>
                 <LivePreview 
                   files={files}
                   isVisible={showPreview}

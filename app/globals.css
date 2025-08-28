@@ -13,11 +13,22 @@ body {
   padding: 0;
   font-feature-settings: 'cv11', 'ss01';
   font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html, body {
   height: 100%;
   overflow-x: hidden;
+  /* Improve scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile viewport fixes */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
 }
 
 /* Modern scrollbar */
@@ -29,6 +40,13 @@ html, body {
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+}
+
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
 }
 
 ::-webkit-scrollbar-track {
